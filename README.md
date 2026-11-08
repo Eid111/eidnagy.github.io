@@ -1,6 +1,7 @@
 # Eid Nagy Portfolio
 
 موقع ثابت يعمل على GitHub Pages، من دون Python أو خادم خلفي. محتوى الموقع محفوظ في `site-data.json`.
+صورة `static/eid-nagy-logo.png` مستخدمة كشعار في رأس الموقع وأيقونة للمتصفح.
 
 ## النشر على GitHub Pages
 
