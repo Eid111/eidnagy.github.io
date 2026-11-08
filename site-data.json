@@ -1,126 +1,138 @@
 {
- "texts": {
-  "ar": {
-   "name": "عيد ناجي",
-   "nWork": "الأعمال",
-   "nPrice": "الأسعار",
-   "nContact": "تواصل",
-   "avail": "متاح لمشاريع جديدة",
-   "h1": "أحوّل اللقطات إلى سينما.",
-   "sub": "أنا عيد ناجي، مونتير ومصوّر فيديو. أصنع فيديوهات بإيقاع مدروس وإضاءة محسوبة وصوت نظيف للشركات وصنّاع المحتوى والمناسبات.",
-   "cWork": "شاهد أعمالي",
-   "cStart": "ابدأ مشروعك",
-   "wTitle": "أعمال مختارة",
-   "wLead": "شاهد نماذج من شغلي، واضغط على أي فيديو لتشغيله.",
-   "workEmptyTitle": "المعرض بيتحدّث",
-   "workEmptyText": "هتظهر هنا أحدث مشاريع الفيديو قريبًا. لحد ما أضيفها، احكيلي عن مشروعك.",
-   "workEmptyCta": "ابدأ مشروعك",
-   "chTitle": "المزيد من أعمالي",
-   "chText": "قناة لأحد عملائي، والمونتاج فيها من تنفيذي.",
-   "chBtn": "افتح القناة",
-   "pTitle": "خدمات تناسب مشروعك",
-   "pLead": "كل مشروع مختلف. احكيلي عن فكرتك واحتياجاتك، وهبعتلك عرض سعر مناسب.",
-   "priceCards": [
-    "ريلز جذابة بإيقاع سريع، ترجمة ومؤثرات مناسبة لهوية محتواك.",
-    "مونتاج يوتيوب من ترتيب القصة واللقطات إلى ضبط الصوت والألوان.",
-    "مونتاج بودكاست مع تنظيف الصوت ومزامنة الكاميرات عند الحاجة."
-   ],
-   "priceCta": "اطلب عرض سعر",
-   "priceNote": "السعر بيتحدد حسب مدة الفيديو، الخامات والتفاصيل المطلوبة.",
-   "tabs": [
-    "ريلز / شورتس",
-    "فيديوهات يوتيوب",
-    "بودكاست"
-   ],
-   "kTitle": "لنعمل معاً",
-   "kLead": "أخبرني عن مشروعك وسأرد عليك خلال يوم.",
-   "ph": [
-    "اسمك",
-    "بريدك الإلكتروني",
-    "ما الذي تصنعه؟"
-   ],
-   "sb": "أرسل عبر واتساب",
-   "cl": [
-    "واتساب",
-    "البريد الإلكتروني",
-    "يوتيوب"
-   ],
-   "play": "تشغيل"
+  "texts": {
+    "ar": {
+      "name": "عيد ناجي",
+      "nWork": "الأعمال",
+      "nPrice": "الأسعار",
+      "nContact": "تواصل",
+      "avail": "متاح لمشاريع جديدة",
+      "h1": "أحوّل اللقطات إلى سينما.",
+      "sub": "أنا عيد ناجي، مونتير ومصوّر فيديو. أصنع فيديوهات بإيقاع مدروس وإضاءة محسوبة وصوت نظيف للشركات وصنّاع المحتوى والمناسبات.",
+      "cWork": "شاهد أعمالي",
+      "cStart": "ابدأ مشروعك",
+      "wTitle": "أعمال مختارة",
+      "wLead": "شاهد نماذج من شغلي، واضغط على أي فيديو لتشغيله.",
+      "workEmptyTitle": "المعرض بيتحدّث",
+      "workEmptyText": "هتظهر هنا أحدث مشاريع الفيديو قريبًا. لحد ما أضيفها، احكيلي عن مشروعك.",
+      "workEmptyCta": "ابدأ مشروعك",
+      "chTitle": "المزيد من أعمالي",
+      "chText": "قناة لأحد عملائي، والمونتاج فيها من تنفيذي.",
+      "chBtn": "افتح القناة",
+      "pTitle": "خدمات تناسب مشروعك",
+      "pLead": "كل مشروع مختلف. احكيلي عن فكرتك واحتياجاتك، وهبعتلك عرض سعر مناسب.",
+      "priceCards": [
+        "ريلز جذابة بإيقاع سريع، ترجمة ومؤثرات مناسبة لهوية محتواك.",
+        "مونتاج يوتيوب من ترتيب القصة واللقطات إلى ضبط الصوت والألوان.",
+        "مونتاج بودكاست مع تنظيف الصوت ومزامنة الكاميرات عند الحاجة."
+      ],
+      "priceCta": "اطلب عرض سعر",
+      "priceNote": "السعر بيتحدد حسب مدة الفيديو، الخامات والتفاصيل المطلوبة.",
+      "tabs": [
+        "ريلز / شورتس",
+        "فيديوهات يوتيوب",
+        "بودكاست"
+      ],
+      "kTitle": "لنعمل معاً",
+      "kLead": "أخبرني عن مشروعك وسأرد عليك خلال يوم.",
+      "ph": [
+        "اسمك",
+        "بريدك الإلكتروني",
+        "ما الذي تصنعه؟"
+      ],
+      "sb": "أرسل عبر واتساب",
+      "cl": [
+        "واتساب",
+        "البريد الإلكتروني",
+        "يوتيوب"
+      ],
+      "play": "تشغيل"
+    },
+    "en": {
+      "name": "Eid Nagy",
+      "nWork": "Work",
+      "nPrice": "Pricing",
+      "nContact": "Contact",
+      "avail": "Available for new projects",
+      "h1": "Turning moments into cinema.",
+      "sub": "I'm Eid Nagy, a video editor and videographer. I shape footage with measured pacing, deliberate light and clean sound for brands, creators and events.",
+      "cWork": "View my work",
+      "cStart": "Start a project",
+      "wTitle": "Selected work",
+      "wLead": "A few samples of my work. Click any video to play it.",
+      "workEmptyTitle": "Portfolio coming soon",
+      "workEmptyText": "Recent video projects will be featured here soon. In the meantime, tell me about your project.",
+      "workEmptyCta": "Start a project",
+      "chTitle": "More of my work",
+      "chText": "A client's channel. The editing is mine.",
+      "chBtn": "Open channel",
+      "pTitle": "Video editing for your next project",
+      "pLead": "Every project is different. Tell me what you need and I'll put together a quote that fits.",
+      "priceCards": [
+        "Fast-paced reels with captions and effects tailored to your content.",
+        "YouTube editing, from story and pacing to clean audio and color.",
+        "Podcast editing with clean audio and synced camera angles when needed."
+      ],
+      "priceCta": "Request a quote",
+      "priceNote": "Pricing depends on video length, footage and the details of your project.",
+      "tabs": [
+        "Reels / Shorts",
+        "YouTube videos",
+        "Podcasts"
+      ],
+      "kTitle": "Let's work together",
+      "kLead": "Tell me about your project and I'll reply within a day.",
+      "ph": [
+        "Your name",
+        "Your email",
+        "What are you making?"
+      ],
+      "sb": "Send via WhatsApp",
+      "cl": [
+        "WhatsApp",
+        "Email",
+        "YouTube"
+      ],
+      "play": "Play"
+    }
   },
-  "en": {
-   "name": "Eid Nagy",
-   "nWork": "Work",
-   "nPrice": "Pricing",
-   "nContact": "Contact",
-   "avail": "Available for new projects",
-   "h1": "Turning moments into cinema.",
-   "sub": "I'm Eid Nagy, a video editor and videographer. I shape footage with measured pacing, deliberate light and clean sound for brands, creators and events.",
-   "cWork": "View my work",
-   "cStart": "Start a project",
-   "wTitle": "Selected work",
-   "wLead": "A few samples of my work. Click any video to play it.",
-   "workEmptyTitle": "Portfolio coming soon",
-   "workEmptyText": "Recent video projects will be featured here soon. In the meantime, tell me about your project.",
-   "workEmptyCta": "Start a project",
-   "chTitle": "More of my work",
-   "chText": "A client's channel. The editing is mine.",
-   "chBtn": "Open channel",
-   "pTitle": "Video editing for your next project",
-   "pLead": "Every project is different. Tell me what you need and I'll put together a quote that fits.",
-   "priceCards": [
-    "Fast-paced reels with captions and effects tailored to your content.",
-    "YouTube editing, from story and pacing to clean audio and color.",
-    "Podcast editing with clean audio and synced camera angles when needed."
-   ],
-   "priceCta": "Request a quote",
-   "priceNote": "Pricing depends on video length, footage and the details of your project.",
-   "tabs": [
-    "Reels / Shorts",
-    "YouTube videos",
-    "Podcasts"
-   ],
-   "kTitle": "Let's work together",
-   "kLead": "Tell me about your project and I'll reply within a day.",
-   "ph": [
-    "Your name",
-    "Your email",
-    "What are you making?"
-   ],
-   "sb": "Send via WhatsApp",
-   "cl": [
-    "WhatsApp",
-    "Email",
-    "YouTube"
-   ],
-   "play": "Play"
-  }
- },
- "contact": {
-  "wa": "201155782531",
-  "wa_show": "+20 115 578 2531",
-  "email": "eidnagy34@gmail.com",
-  "yt": "https://youtube.com/@hisham_yousry",
-  "socials": [
-   {
-    "label": "YouTube",
-    "url": "https://youtube.com/@hisham_yousry"
-   }
+  "contact": {
+    "wa": "201155782531",
+    "wa_show": "+20 115 578 2531",
+    "email": "eidnagy34@gmail.com",
+    "yt": "https://youtube.com/@hisham_yousry",
+    "socials": [
+      {
+        "label": "YouTube",
+        "url": "https://youtube.com/@hisham_yousry"
+      }
+    ]
+  },
+  "appearance": {
+    "accent": "#FF5500",
+    "theme": "dark",
+    "lang": "ar"
+  },
+  "sections": {
+    "work": true,
+    "pricing": true,
+    "contact": true
+  },
+  "seo": {
+    "title_ar": "عيد ناجي | Eid Nagy — مونتير ومصوّر فيديو",
+    "title_en": "Eid Nagy — Video Editor & Videographer",
+    "desc": "Eid Nagy — Video editor and videographer. عيد ناجي — مونتير ومصوّر فيديو."
+  },
+  "videos": [
+    {
+      "url": "https://youtu.be/Y4i9t8_u8aw",
+      "ar": [
+        "الصين لم تَعُد تصنع المنتجات… الصين تصنع العالم!",
+        ""
+      ],
+      "en": [
+        "China No Longer Makes Products… China Makes the World!",
+        ""
+      ]
+    }
   ]
- },
- "appearance": {
-  "accent": "#FF5500",
-  "theme": "dark",
-  "lang": "ar"
- },
- "sections": {
-  "work": true,
-  "pricing": true,
-  "contact": true
- },
- "seo": {
-  "title_ar": "عيد ناجي | Eid Nagy — مونتير ومصوّر فيديو",
-  "title_en": "Eid Nagy — Video Editor & Videographer",
-  "desc": "Eid Nagy — Video editor and videographer. عيد ناجي — مونتير ومصوّر فيديو."
- },
- "videos": []
 }
