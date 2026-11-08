@@ -15,6 +15,8 @@
       "workEmptyTitle": "المعرض بيتحدّث",
       "workEmptyText": "هتظهر هنا أحدث مشاريع الفيديو قريبًا. لحد ما أضيفها، احكيلي عن مشروعك.",
       "workEmptyCta": "ابدأ مشروعك",
+      "fbVideo": "فيديو من فيسبوك",
+      "fbOpen": "لو الفيديو لم يعمل، افتحه على فيسبوك",
       "chTitle": "المزيد من أعمالي",
       "chText": "قناة لأحد عملائي، والمونتاج فيها من تنفيذي.",
       "chBtn": "افتح القناة",
@@ -62,6 +64,8 @@
       "workEmptyTitle": "Portfolio coming soon",
       "workEmptyText": "Recent video projects will be featured here soon. In the meantime, tell me about your project.",
       "workEmptyCta": "Start a project",
+      "fbVideo": "Facebook video",
+      "fbOpen": "If the player doesn't load, open the video on Facebook",
       "chTitle": "More of my work",
       "chText": "A client's channel. The editing is mine.",
       "chBtn": "Open channel",
@@ -141,7 +145,7 @@
     {
       "url": "https://www.facebook.com/share/v/1DvxRisyv8/",
       "ar": [
-        "🚗 **العربية اللي علّمت مصر كلها السواقة… ورفضت تموت! 🇪🇬**",
+        "🚗 العربية اللي علّمت مصر كلها السواقة… ورفضت تموت! 🇪🇬",
         ""
       ],
       "en": [
