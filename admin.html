@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>إدارة الموقع</title>
+  <style>
+    :root{font:16px/1.6 system-ui,sans-serif;color:#14202a;background:#edf1f4}
+    *{box-sizing:border-box}body{margin:0;padding:24px}.wrap{max-width:900px;margin:auto;display:grid;gap:18px}
+    .card{background:white;border:1px solid #d5dde3;border-radius:14px;padding:20px}
+    h1,h2,p{margin-top:0}label{display:block;font-weight:650;margin-bottom:12px}
+    input,textarea,button{font:inherit}input,textarea{width:100%;padding:10px;border:1px solid #bac5ce;border-radius:8px;margin-top:5px}
+    textarea{min-height:320px;direction:ltr;text-align:left;font:13px/1.5 ui-monospace,monospace}
+    button,.button{border:0;border-radius:8px;padding:10px 16px;background:#ff5500;color:white;font-weight:700;cursor:pointer;text-decoration:none}
+    button.secondary{background:#e8edf1;color:#14202a}button.danger{background:#b42318}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 12px}.row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-top:1px solid #e5e9ec}
+    .row small{display:block;color:#596773;overflow-wrap:anywhere}.actions{display:flex;gap:6px;flex-shrink:0}.actions button{padding:6px 10px}
+    #status{min-height:1.6em;color:#43515d}.hint{font-size:14px;color:#596773}.hidden{display:none!important}
+    @media(max-width:600px){body{padding:12px}.grid{grid-template-columns:1fr}.row{align-items:flex-start;flex-direction:column}.actions{flex-wrap:wrap}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header><h1>لوحة إدارة الموقع</h1><p class="hint">التغييرات تُحفظ في مستودع GitHub وتُنشر بعد دقائق. لوحة الإدارة لا تخزّن رمز الوصول.</p></header>
+    <section id="connect-card" class="card">
+      <h2>الاتصال بمستودع GitHub</h2>
+      <div class="grid">
+        <label>اسم المستخدم / المنظمة<input id="owner" autocomplete="off" placeholder="eidnagy"></label>
+        <label>اسم المستودع<input id="repo" autocomplete="off" placeholder="eidnagy.github.io"></label>
+      </div>
+      <label>الفرع<input id="branch" value="main" autocomplete="off"></label>
+      <label>Fine-grained Personal Access Token<input id="token" type="password" autocomplete="off" spellcheck="false"></label>
+      <button id="connect">اتصال</button>
+      <p class="hint">أنشئ رمزاً محدوداً لهذا المستودع فقط بصلاحية Contents: Read and write. لا تضع الرمز في ملفات المشروع أو ترسله لأحد.</p>
+    </section>
+    <section id="editor" class="hidden">
+      <div class="card">
+        <div class="row" style="border:0;padding-top:0"><h2>إعدادات الموقع</h2><button id="logout" class="secondary">قطع الاتصال</button></div>
+        <p class="hint">يمكنك تعديل النصوص والأسعار وروابط التواصل والألوان. اترك البيانات بصيغة JSON صحيحة.</p>
+        <label for="settings">إعدادات الموقع</label>
+        <textarea id="settings" spellcheck="false"></textarea>
+        <button id="save-settings">حفظ الإعدادات</button>
+      </div>
+      <div class="card">
+        <h2>إضافة عمل</h2>
+        <form id="video-form">
+          <label>رابط الفيديو (YouTube أو رابط HTTPS مباشر)<input id="video-url" type="url" required placeholder="https://youtu.be/..."></label>
+          <div class="grid">
+            <label>العنوان بالعربي<input id="title-ar" required></label>
+            <label>العنوان بالإنجليزية<input id="title-en" required dir="ltr"></label>
+            <label>وصف بالعربي<input id="desc-ar"></label>
+            <label>وصف بالإنجليزية<input id="desc-en" dir="ltr"></label>
+          </div>
+          <button>إضافة العمل</button>
+        </form>
+        <p class="hint">ارفع ملفات الفيديو إلى خدمة فيديو خارجية مثل YouTube ثم أضف الرابط هنا؛ GitHub Pages ليس مكاناً مناسباً لتخزين الفيديوهات.</p>
+      </div>
+      <div class="card"><h2>الأعمال الحالية</h2><div id="videos"></div></div>
+    </section>
+    <p id="status" role="status" aria-live="polite"></p>
+  </main>
+  <script>
+    const $=selector=>document.querySelector(selector);
+    const status=message=>{$("#status").textContent=message};
+    let token="",owner="",repo="",branch="main",siteData=null,sha="";
+    const apiHeaders=()=>({Accept:"application/vnd.github+json",Authorization:`Bearer ${token}`,"X-GitHub-Api-Version":"2022-11-28"});
+    const contentsUrl=()=>`https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/contents/site-data.json`;
+    const decodeBase64=value=>new TextDecoder().decode(Uint8Array.from(atob(value.replace(/\n/g,"")),c=>c.charCodeAt(0)));
+
+    async function github(path,options={}){
+      const response=await fetch(path,{...options,headers:{...apiHeaders(),...options.headers}});
+      const result=await response.json().catch(()=>({}));
+      if(!response.ok)throw new Error(result.message||`GitHub API error (${response.status})`);
+      return result;
+    }
+
+    function render(){
+      $("#settings").value=JSON.stringify(Object.fromEntries(Object.entries(siteData).filter(([key])=>key!=="videos")),null,2);
+      $("#videos").innerHTML=siteData.videos.map((video,index)=>`<div class="row">
+        <div><strong>${escapeHtml(video.ar?.[0]||video.en?.[0]||"عمل بدون عنوان")}</strong><small>${escapeHtml(video.url)}</small></div>
+        <div class="actions"><button class="secondary" data-action="up" data-index="${index}" ${index===0?"disabled":""}>↑</button>
+        <button class="secondary" data-action="down" data-index="${index}" ${index===siteData.videos.length-1?"disabled":""}>↓</button>
+        <button class="secondary" data-action="edit" data-index="${index}">تعديل</button>
+        <button class="danger" data-action="delete" data-index="${index}">حذف</button></div></div>`).join("")||"<p>لا توجد أعمال مضافة.</p>";
+    }
+
+    function escapeHtml(value){
+      return String(value??"").replace(/[&<>"']/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]));
+    }
+
+    async function saveData(commitMessage){
+      status("جارٍ الحفظ في GitHub…");
+      try{
+        const result=await github(contentsUrl(),{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify({
+          message:commitMessage,content:btoa(String.fromCharCode(...new TextEncoder().encode(JSON.stringify(siteData,null,2)+"\n"))),sha,branch
+        })});
+        sha=result.content.sha;
+        status("تم الحفظ. سيُنشر التحديث على الموقع بعد اكتمال GitHub Pages.");
+        render();
+        return true;
+      }catch(error){
+        status(error.message.includes("does not match")?"الملف تغيّر في GitHub منذ آخر تحميل. أعد الاتصال ثم حاول مرة أخرى.":`فشل الحفظ: ${error.message}`);
+        return false;
+      }
+    }
+
+    function validVideoUrl(value){
+      try{return new URL(value).protocol==="https:"}catch{return false}
+    }
+
+    $("#connect").addEventListener("click",async()=>{
+      owner=$("#owner").value.trim();repo=$("#repo").value.trim();branch=$("#branch").value.trim()||"main";token=$("#token").value.trim();
+      if(!owner||!repo||!token){status("أدخل اسم المستخدم والمستودع والرمز.");return}
+      status("جارٍ الاتصال…");
+      try{
+        const file=await github(contentsUrl()+`?ref=${encodeURIComponent(branch)}`);
+        siteData=JSON.parse(decodeBase64(file.content));
+        if(!Array.isArray(siteData.videos))siteData.videos=[];
+        sha=file.sha;
+        localStorage.setItem("admin-repo",JSON.stringify({owner,repo,branch}));
+        $("#connect-card").classList.add("hidden");$("#editor").classList.remove("hidden");
+        render();status("تم الاتصال بالمستودع.");
+      }catch(error){token="";status(`تعذر الاتصال: ${error.message}`)}
+    });
+
+    $("#save-settings").addEventListener("click",async()=>{
+      try{
+        const settings=JSON.parse($("#settings").value);
+        if(!settings||Array.isArray(settings)||typeof settings!=="object")throw new Error("يجب أن تكون الإعدادات كائن JSON.");
+        const previous=siteData;
+        siteData={...settings,videos:siteData.videos};
+        if(!await saveData("Update website settings"))siteData=previous;
+      }catch(error){status(`الإعدادات غير صالحة: ${error.message}`)}
+    });
+
+    $("#video-form").addEventListener("submit",async event=>{
+      event.preventDefault();
+      const url=$("#video-url").value.trim();
+      if(!validVideoUrl(url)){status("استخدم رابط HTTPS صالحاً.");return}
+      const video={url,ar:[$("#title-ar").value.trim(),$("#desc-ar").value.trim()],en:[$("#title-en").value.trim(),$("#desc-en").value.trim()]};
+      siteData.videos.push(video);
+      if(await saveData("Add portfolio video"))event.target.reset();
+      else siteData.videos.pop();
+    });
+
+    $("#videos").addEventListener("click",async event=>{
+      const button=event.target.closest("button[data-action]");
+      if(!button)return;
+      const index=Number(button.dataset.index),video=siteData.videos[index];
+      const previous=JSON.parse(JSON.stringify(siteData.videos));
+      if(button.dataset.action==="delete"){
+        if(!confirm("هل تريد حذف هذا العمل؟"))return;
+        siteData.videos.splice(index,1);
+      }else if(button.dataset.action==="up"&&index>0){
+        [siteData.videos[index-1],siteData.videos[index]]=[siteData.videos[index],siteData.videos[index-1]];
+      }else if(button.dataset.action==="down"&&index<siteData.videos.length-1){
+        [siteData.videos[index+1],siteData.videos[index]]=[siteData.videos[index],siteData.videos[index+1]];
+      }else if(button.dataset.action==="edit"){
+        const url=prompt("رابط الفيديو HTTPS",video.url);if(url===null)return;
+        if(!validVideoUrl(url)){status("استخدم رابط HTTPS صالحاً.");return}
+        const titleAr=prompt("العنوان بالعربي",video.ar?.[0]||"");if(titleAr===null)return;
+        const titleEn=prompt("العنوان بالإنجليزية",video.en?.[0]||"");if(titleEn===null)return;
+        const descAr=prompt("وصف بالعربي",video.ar?.[1]||"");if(descAr===null)return;
+        const descEn=prompt("الوصف بالإنجليزية",video.en?.[1]||"");if(descEn===null)return;
+        video.url=url;video.ar=[titleAr,descAr];video.en=[titleEn,descEn];
+      }else return;
+      if(!await saveData("Update portfolio videos"))siteData.videos=previous;
+    });
+
+    $("#logout").addEventListener("click",()=>{
+      token="";siteData=null;sha="";
+      $("#editor").classList.add("hidden");$("#connect-card").classList.remove("hidden");$("#token").value="";
+      status("تم قطع الاتصال. رمز الوصول لم يُحفظ.");
+    });
+
+    try{
+      const saved=JSON.parse(localStorage.getItem("admin-repo")||"{}");
+      $("#owner").value=saved.owner||"";$("#repo").value=saved.repo||"";$("#branch").value=saved.branch||"main";
+    }catch(error){status(`تعذر قراءة إعدادات المتصفح: ${error.message}`)}
+  </script>
+</body>
+</html>

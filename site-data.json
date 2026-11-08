@@ -1,0 +1,278 @@
+{
+ "texts": {
+  "ar": {
+   "name": "عيد ناجي",
+   "nWork": "الأعمال",
+   "nPrice": "الأسعار",
+   "nContact": "تواصل",
+   "avail": "متاح لمشاريع جديدة",
+   "h1": "أحوّل اللقطات إلى سينما.",
+   "sub": "أنا عيد ناجي، مونتير ومصوّر فيديو. أصنع فيديوهات بإيقاع مدروس وإضاءة محسوبة وصوت نظيف للشركات وصنّاع المحتوى والمناسبات.",
+   "cWork": "شاهد أعمالي",
+   "cStart": "ابدأ مشروعك",
+   "wTitle": "أعمال مختارة",
+   "wLead": "شاهد نماذج من شغلي، واضغط على أي فيديو لتشغيله.",
+   "chTitle": "المزيد من أعمالي",
+   "chText": "قناة لأحد عملائي، والمونتاج فيها من تنفيذي.",
+   "chBtn": "افتح القناة",
+   "pTitle": "احسب سعر مشروعك",
+   "pLead": "اختر نوع الفيديو وستظهر لك تقديرات فورية. السعر النهائي يعتمد على المادة الخام ومتطلباتك.",
+   "est": "السعر التقديري",
+   "send": "أرسل التقدير على واتساب",
+   "note": "هذا تقدير وليس عرض سعر نهائي.",
+   "rush": "تسليم سريع خلال 24–48 ساعة",
+   "rushS": "يضيف 25% على الإجمالي",
+   "tabs": [
+    "ريلز / شورتس",
+    "فيديوهات يوتيوب",
+    "بودكاست"
+   ],
+   "addons": "إضافات اختيارية",
+   "vids": "فيديو",
+   "mins": "دقيقة",
+   "eps": "حلقة",
+   "nv": "عدد الفيديوهات",
+   "ne": "عدد الحلقات",
+   "dur": "مدة الفيديو",
+   "edur": "مدة الحلقة",
+   "style": "أسلوب المونتاج",
+   "cx": "مستوى التعقيد",
+   "fmt": "نوع الإنتاج",
+   "perV": "للفيديو",
+   "perE": "للحلقة",
+   "bulk": "خصم الكمية",
+   "rushL": "تسليم سريع +25%",
+   "extraM": "دقائق إضافية",
+   "extraL": "مدة إضافية",
+   "kTitle": "لنعمل معاً",
+   "kLead": "أخبرني عن مشروعك وسأرد عليك خلال يوم.",
+   "ph": [
+    "اسمك",
+    "بريدك الإلكتروني",
+    "ما الذي تصنعه؟"
+   ],
+   "sb": "أرسل عبر واتساب",
+   "cl": [
+    "واتساب",
+    "البريد الإلكتروني",
+    "يوتيوب"
+   ],
+   "play": "تشغيل"
+  },
+  "en": {
+   "name": "Eid Nagy",
+   "nWork": "Work",
+   "nPrice": "Pricing",
+   "nContact": "Contact",
+   "avail": "Available for new projects",
+   "h1": "Turning moments into cinema.",
+   "sub": "I'm Eid Nagy, a video editor and videographer. I shape footage with measured pacing, deliberate light and clean sound for brands, creators and events.",
+   "cWork": "View my work",
+   "cStart": "Start a project",
+   "wTitle": "Selected work",
+   "wLead": "A few samples of my work. Click any video to play it.",
+   "chTitle": "More of my work",
+   "chText": "A client's channel. The editing is mine.",
+   "chBtn": "Open channel",
+   "pTitle": "Price your project",
+   "pLead": "Pick a format to get an instant estimate. The final price depends on your raw footage and requirements.",
+   "est": "Estimated price",
+   "send": "Send estimate on WhatsApp",
+   "note": "This is an estimate, not a final quote.",
+   "rush": "Rush delivery in 24–48 hours",
+   "rushS": "Adds 25% to the total",
+   "tabs": [
+    "Reels / Shorts",
+    "YouTube videos",
+    "Podcasts"
+   ],
+   "addons": "Optional add-ons",
+   "vids": "videos",
+   "mins": "min",
+   "eps": "episodes",
+   "nv": "Number of videos",
+   "ne": "Number of episodes",
+   "dur": "Video length",
+   "edur": "Episode length",
+   "style": "Editing style",
+   "cx": "Complexity",
+   "fmt": "Production format",
+   "perV": "per video",
+   "perE": "per episode",
+   "bulk": "Bulk discount",
+   "rushL": "Rush delivery +25%",
+   "extraM": "Extra minutes",
+   "extraL": "Extra length",
+   "kTitle": "Let's work together",
+   "kLead": "Tell me about your project and I'll reply within a day.",
+   "ph": [
+    "Your name",
+    "Your email",
+    "What are you making?"
+   ],
+   "sb": "Send via WhatsApp",
+   "cl": [
+    "WhatsApp",
+    "Email",
+    "YouTube"
+   ],
+   "play": "Play"
+  }
+ },
+ "pricing": {
+  "reels": {
+   "s": [
+    [
+     "مونتاج أساسي",
+     "Basic cut",
+     15,
+     "قص نظيف وترجمة وضبط صوت",
+     "Clean cuts, captions, audio leveling"
+    ],
+    [
+     "مونتاج ديناميكي",
+     "Dynamic",
+     25,
+     "موشن جرافيك وB-roll ومؤثرات صوتية",
+     "Motion graphics, B-roll, SFX"
+    ],
+    [
+     "مونتاج متقدم",
+     "High-end motion",
+     40,
+     "مؤثرات بصرية وأنيميشن مخصص",
+     "VFX and custom animation"
+    ]
+   ],
+   "a": [
+    [
+     "تحسين السكريبت والهوك",
+     10
+    ],
+    [
+     "غلاف مخصص",
+     8
+    ]
+   ],
+   "ae": [
+    "Script & hook optimization",
+    "Custom cover"
+   ],
+   "bulk": 10,
+   "disc": 0.15
+  },
+  "yt": {
+   "s": [
+    [
+     "مونتاج قياسي",
+     "Standard edit",
+     60,
+     "قص نظيف وصوت وألوان وعناوين",
+     "Clean cuts, audio, color, titles"
+    ],
+    [
+     "سرد ديناميكي",
+     "Dynamic storytelling",
+     110,
+     "إيقاع وB-roll وإبرازات ومؤثرات",
+     "Pacing, B-roll, callouts, SFX"
+    ],
+    [
+     "سينمائي / وثائقي",
+     "Cinematic / documentary",
+     200,
+     "مؤثرات ثقيلة وموشن وتدرج لوني",
+     "Heavy VFX, motion, film grade"
+    ]
+   ],
+   "base": 8,
+   "extra": [
+    5,
+    8,
+    12
+   ],
+   "a": [
+    [
+     "صورة مصغّرة مخصصة",
+     20
+    ],
+    [
+     "3 شورتس من الفيديو",
+     50
+    ]
+   ],
+   "ae": [
+    "Custom thumbnail",
+    "3 vertical shorts"
+   ]
+  },
+  "pod": {
+   "s": [
+    [
+     "صوت / كاميرا واحدة",
+     "Audio / single camera",
+     40,
+     "قص ومعالجة صوت وإزالة ضوضاء",
+     "Cuts, mastering, noise removal"
+    ],
+    [
+     "متعدد الكاميرات (2–4)",
+     "Multi-cam (2–4 angles)",
+     80,
+     "مزامنة وتبديل المتحدثين وضبط ألوان",
+     "Sync, speaker switching, color match"
+    ]
+   ],
+   "base": 30,
+   "extra": [
+    15,
+    25
+   ],
+   "a": [
+    [
+     "5 ريلز من الحلقة",
+     75
+    ],
+    [
+     "مقدمة وخاتمة وفصول وصورة مصغّرة",
+     25
+    ]
+   ],
+   "ae": [
+    "5 reels from the episode",
+    "Intro/outro, chapters, thumbnail"
+   ]
+  },
+  "rush": 0.25,
+  "currency": "$",
+  "cur_after": false
+ },
+ "contact": {
+  "wa": "201155782531",
+  "wa_show": "+20 115 578 2531",
+  "email": "eidnagy34@gmail.com",
+  "yt": "https://youtube.com/@hisham_yousry",
+  "socials": [
+   {
+    "label": "YouTube",
+    "url": "https://youtube.com/@hisham_yousry"
+   }
+  ]
+ },
+ "appearance": {
+  "accent": "#FF5500",
+  "theme": "dark",
+  "lang": "ar"
+ },
+ "sections": {
+  "work": true,
+  "pricing": true,
+  "contact": true
+ },
+ "seo": {
+  "title_ar": "عيد ناجي | Eid Nagy — مونتير ومصوّر فيديو",
+  "title_en": "Eid Nagy — Video Editor & Videographer",
+  "desc": "Eid Nagy — Video editor and videographer. عيد ناجي — مونتير ومصوّر فيديو."
+ },
+ "videos": []
+}

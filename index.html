@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Eid Nagy | Video Editor &amp; Videographer</title>
+    <meta name="description" content="Eid Nagy — Video editor and videographer. عيد ناجي — مونتير ومصوّر فيديو.">
+    <meta name="theme-color" content="#10171c">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Eid Nagy | Video Editor &amp; Videographer">
+    <meta property="og:description" content="Eid Nagy — Video editor and videographer. عيد ناجي — مونتير ومصوّر فيديو.">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23FF5500'/%3E%3Ctext x='50' y='72' font-size='62' font-family='sans-serif' font-weight='bold' text-anchor='middle' fill='white'%3EE%3C/text%3E%3C/svg%3E">
+    <script>try{document.documentElement.classList.toggle('dark',(localStorage.getItem('theme')||'dark')==='dark')}catch(e){document.documentElement.classList.add('dark')}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        ember: 'rgb(var(--ember) / <alpha-value>)',
+                        zinc: { 950: '#0a0f14', 900: '#10171c', 800: '#18222a', 700: '#2c3a45', 600: '#5a6873', 400: '#93a3ae', 200: '#e8eef2' }
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        bricolage: ['Bricolage Grotesque', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root{--ember:255 85 0}
+        body { transition: background-color 0.3s, color 0.3s; }
+        .bento-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .video-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; }
+        .video-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04); }
+        .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .dark .glass { background: rgba(16, 23, 28, 0.6); }
+        .rec-dot { width: 8px; height: 8px; background: rgb(var(--ember)); border-radius: 50%; animation: blink 1.4s steps(2) infinite; }
+        @keyframes blink { 50% { opacity: 0.2 } }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgb(var(--ember)); border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-zinc-200 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-200 font-cairo selection:bg-ember selection:text-white">
+    <div id="load-error" class="hidden m-6 rounded-xl bg-red-100 p-4 text-red-900" role="alert"></div>
+    <div class="max-w-6xl mx-auto px-6">
+        <!-- Navigation -->
+        <nav class="flex justify-between items-center py-8 gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-ember rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-ember/30">E</div>
+                <span class="font-extrabold text-xl tracking-tight" data-i="name"></span>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+                    <a href="#work" class="hover:text-ember transition-colors" data-i="nWork"></a>
+                    <a href="#pricing" class="hover:text-ember transition-colors" data-i="nPrice"></a>
+                    <a href="#contact" class="hover:text-ember transition-colors" data-i="nContact"></a>
+                </div>
+                <button id="lang" class="px-3 py-1 text-xs font-bold border border-zinc-400 dark:border-zinc-700 rounded-full hover:bg-ember hover:text-white transition-all">EN</button>
+                <button id="theme" class="p-2 rounded-full glass hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-all" aria-label="Theme">🌙</button>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <header class="py-20 text-center md:text-start">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-300 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 text-xs font-bold mb-6">
+                <div class="rec-dot"></div>
+                <span data-i="avail"></span>
+            </div>
+            <h1 class="text-5xl md:text-8xl font-extrabold leading-tight tracking-tighter mb-6" data-i="h1"></h1>
+            <p class="text-lg md:text-2xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto md:mx-0 mb-10 leading-relaxed" data-i="sub"></p>
+            <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                <a href="#work" class="px-8 py-4 bg-ember text-white font-bold rounded-2xl shadow-xl shadow-ember/20 hover:scale-105 transition-all" data-i="cWork"></a>
+                <a href="#contact" class="px-8 py-4 border-2 border-zinc-400 dark:border-zinc-700 font-bold rounded-2xl hover:bg-zinc-300 dark:hover:bg-zinc-800 transition-all" data-i="cStart"></a>
+            </div>
+        </header>
+
+        <!-- Work Section -->
+        <section id="work" class="py-20">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+                <div>
+                    <h2 class="text-4xl font-extrabold mb-4" data-i="wTitle"></h2>
+                    <p class="text-zinc-600 dark:text-zinc-400 text-lg" data-i="wLead"></p>
+                </div>
+            </div>
+            <div class="bento-grid" id="vids"></div>
+            <div id="chblock" class="mt-12 p-6 rounded-3xl glass flex flex-col md:flex-row items-center justify-between gap-6">
+                <div>
+                    <h3 class="text-xl font-bold" data-i="chTitle"></h3>
+                    <p class="text-zinc-600 dark:text-zinc-400" data-i="chText"></p>
+                </div>
+                <a id="ytlink" href="#" target="_blank" class="px-6 py-3 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold rounded-xl hover:bg-ember dark:hover:bg-ember transition-all" data-i="chBtn"></a>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="py-20">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-extrabold mb-4" data-i="pTitle"></h2>
+                <p class="text-zinc-600 dark:text-zinc-400 text-lg max-w-2xl mx-auto" data-i="pLead"></p>
+            </div>
+            <div class="grid lg:grid-cols-3 gap-8">
+                <div id="calc" class="lg:col-span-2 glass p-8 rounded-3xl">
+                    <div id="tabs" class="flex flex-wrap gap-2 mb-8" role="tablist"></div>
+                    <div id="panel" class="space-y-6"></div>
+                    <label class="mt-8 flex items-center gap-3 p-4 rounded-2xl border-2 border-transparent hover:border-ember transition-all cursor-pointer group">
+                        <input type="checkbox" id="rush" class="w-5 h-5 accent-ember">
+                        <span id="rushL" class="font-bold group-hover:text-ember transition-colors"></span>
+                    </label>
+                </div>
+                <div class="glass p-8 rounded-3xl flex flex-col justify-between sticky top-24 h-fit">
+                    <div>
+                        <span class="text-sm font-bold text-zinc-500 uppercase tracking-widest" data-i="est"></span>
+                        <div class="text-6xl font-black my-4 text-ember" id="total">$0</div>
+                        <div class="space-y-3 mb-8" id="lines"></div>
+                    </div>
+                    <a id="wa" href="#" target="_blank" class="w-full py-4 bg-ember text-white text-center font-bold rounded-2xl shadow-lg shadow-ember/30 hover:scale-105 transition-all" data-i="send"></a>
+                    <p class="text-xs text-center text-zinc-500 mt-4" data-i="note"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-extrabold mb-4" data-i="kTitle"></h2>
+                <p class="text-zinc-600 dark:text-zinc-400 text-lg max-w-2xl mx-auto" data-i="kLead"></p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="space-y-4" id="cl"></div>
+                <form id="cf" class="space-y-4">
+                    <input type="text" id="n" placeholder="اسمك" required class="w-full p-4 rounded-2xl bg-zinc-100 dark:bg-zinc-800 border-none focus:ring-2 ring-ember outline-none transition-all">
+                    <input type="email" id="e" placeholder="بريدك الإلكتروني" required class="w-full p-4 rounded-2xl bg-zinc-100 dark:bg-zinc-800 border-none focus:ring-2 ring-ember outline-none transition-all">
+                    <textarea id="m" rows="4" placeholder="ما الذي تصنعه؟" required class="w-full p-4 rounded-2xl bg-zinc-100 dark:bg-zinc-800 border-none focus:ring-2 ring-ember outline-none transition-all"></textarea>
+                    <button class="w-full py-4 bg-ember text-white font-bold rounded-2xl shadow-lg shadow-ember/20 hover:scale-[1.02] transition-all" id="sb"></button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <footer class="py-10 border-t border-zinc-300 dark:border-zinc-800 text-center text-zinc-500 text-sm">
+        <div class="max-w-6xl mx-auto px-6">
+            © <span id="yr"></span> <span data-i="name"></span>. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div id="video-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/90 backdrop-blur-sm">
+        <button id="close-modal" class="absolute top-6 right-6 text-white text-4xl hover:text-ember transition-colors">&times;</button>
+        <div id="modal-box" class="w-full max-w-5xl aspect-video shadow-2xl"></div>
+    </div>
+
+    <script>
+    (async()=>{
+        try {
+        const response=await fetch("./site-data.json");
+        if(!response.ok)throw new Error(`Could not load site-data.json (${response.status})`);
+        const SITE=await response.json(), VIDEOS=SITE.videos||[], C=SITE.contact, WA=C.wa, EMAIL=C.email, WA_SHOW=C.wa_show, YT=C.yt;
+        const rgb=(SITE.appearance.accent||"#FF5500").match(/^#([\da-f]{2})([\da-f]{2})([\da-f]{2})$/i);
+        if(rgb)document.documentElement.style.setProperty("--ember",rgb.slice(1).map(x=>parseInt(x,16)).join(" "));
+        const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+        const P=SITE.pricing, T=SITE.texts;
+
+        const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+        const money=n=>{const v=Math.round(n).toLocaleString("en-US"),c=P.currency;return P.cur_after?v+" "+c:c+v};
+        let L=SITE.appearance.lang, tab="reels"; try{L=localStorage.getItem("lang")||L}catch(e){}
+        const S={reels:{n:4,s:0,a:[]},yt:{m:10,n:1,s:0,a:[]},pod:{m:60,n:1,s:0,a:[]}};
+        const TABS=["reels","yt","pod"];
+        const li=L=>L=="ar"?0:1;
+
+        function sld(t,k,label,min,max,unit){return `<div class="f mb-6"><label class="flex justify-between font-bold mb-2">${label}<output id="o-${t}-${k}" class="text-ember">${S[t][k]} ${unit}</output></label><input type="range" id="s-${t}-${k}" data-t="${t}" data-k="${k}" data-u="${unit}" min="${min}" max="${max}" value="${S[t][k]}" class="w-full accent-ember cursor-pointer"></div>`}
+        function rad(t,label){return `<div class="f mb-6"><span class="block font-bold mb-3">${label}</span><div class="grid grid-cols-1 sm:grid-cols-3 gap-3">${P[t].s.map((o,i)=>`<label class="p-3 rounded-xl border-2 cursor-pointer transition-all hover:border-ember flex gap-3 items-start group ${S[t].s==i?"border-ember bg-ember/5":"border-zinc-300 dark:border-zinc-700 bg-transparent"}"><input type="radio" name="r-${t}" data-t="${t}" value="${i}" ${S[t].s==i?"checked":""} class="mt-1 accent-ember"><span class="font-semibold group-hover:text-ember transition-colors">${o[li(L)]}<small class="block text-xs opacity-60">${o[3+li(L)]}</small></span></label>`).join("")}</div></div>`}
+        function chk(t,unit){return `<div class="f mb-6"><span class="block font-bold mb-3">${T[L].addons}</span><div class="grid grid-cols-1 sm:grid-cols-2 gap-3">${P[t].a.map((o,i)=>`<label class="p-3 rounded-xl border-2 cursor-pointer transition-all hover:border-ember flex gap-3 items-start group ${S[t].a.includes(i)?"border-ember bg-ember/5":"border-zinc-300 dark:border-zinc-700 bg-transparent"}"><input type="checkbox" name="c-${t}" data-t="${t}" value="${i}" ${S[t].a.includes(i)?"checked":""} class="mt-1 accent-ember"><span class="font-semibold group-hover:text-ember transition-colors">${L=="ar"?o[0]:P[t].ae[i]}<small class="block text-xs opacity-60">+${money(o[1])} ${unit}</small></span></label>`).join("")}</div></div>`}
+
+        function panel(){
+            const t=T[L];
+            $("#panel").innerHTML=tab=="reels"?sld("reels","n",t.nv,1,30,t.vids)+rad("reels",t.style)+chk("reels",t.perV)
+            :tab=="yt"?sld("yt","m",t.dur,1,60,t.mins)+sld("yt","n",t.nv,1,12,t.vids)+rad("yt",t.cx)+chk("yt",t.perV)
+            :sld("pod","m",t.edur,15,180,t.mins)+sld("pod","n",t.ne,1,12,t.eps)+rad("pod",t.fmt)+chk("pod",t.perE);
+        }
+
+        function calc(){
+            const t=T[L],i=li(L),lines=[];let sum=0;
+            if(tab=="reels"){const s=S.reels,o=P.reels.s[s.s];let b=o[2]*s.n;lines.push([`${s.n} × ${o[i]}`,b]);
+            s.a.forEach(k=>{const a=P.reels.a[k],v=a[1]*s.n;lines.push([i?P.reels.ae[k]:a[0],v]);b+=v});
+            if(s.n>=P.reels.bulk){const d=b*P.reels.disc;lines.push([t.bulk,-d]);b-=d}sum=b}
+            else{const k=tab,s=S[k],o=P[k].s[s.s],mins=Math.max(0,s.m-P[k].base),
+            ex=k=="yt"?mins*P.yt.extra[s.s]:Math.ceil(mins/15)*P.pod.extra[s.s];
+            lines.push([`${s.n} × ${o[i]}`,o[2]*s.n]);if(ex)lines.push([k=="yt"?`${t.extraM} (${mins})`:t.extraL,ex*s.n]);
+            sum=(o[2]+ex)*s.n;s.a.forEach(x=>{const a=P[k].a[x];lines.push([i?P[k].ae[x]:a[0],a[1]*s.n]);sum+=a[1]*s.n})}
+            if($("#rush").checked){const r=sum*P.rush;lines.push([t.rushL,r]);sum+=r}
+            $("#total").textContent=money(sum);
+            $("#lines").innerHTML=lines.map(([a,b])=>`<div class="flex justify-between py-1 border-b border-zinc-300 dark:border-zinc-800 text-sm"><span>${a}</span><span class="font-bold">${b<0?"−":""}${money(Math.abs(b))}</span></div>`).join("");
+            const msg=(L=="ar"?"أهلاً عيد، أريد عرض سعر لـ: ":"Hi Eid, I'd like a quote for: ")+t.tabs[TABS.indexOf(tab)]+" — "+money(sum)+"\n"+lines.map(x=>"- "+x[0]).join("\n");
+            $("#wa").href=`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`}
+
+        function vidId(u){const m=u.match(/(?:v=|youtu\.be\/|shorts\/|embed\/)([\w-]{11})/);return m&&m[1]}
+
+        function isYT(u){return !!vidId(u)}
+        function vids(){
+            const has=VIDEOS.length>0;
+            $("#vids").innerHTML=VIDEOS.map((v,k)=>{
+                const d=v[L], yt=isYT(v.url);
+                const thumb=yt
+                    ?`<img loading="lazy" src="https://i.ytimg.com/vi/${vidId(v.url)}/hqdefault.jpg" class="w-full h-full object-cover" alt="${esc(d[0])}">`
+                    :`<video src="${esc(v.url)}#t=0.5" preload="metadata" muted playsinline class="w-full h-full object-cover"></video>`;
+                return `
+                <div role="button" tabindex="0" data-k="${k}" class="video-card group bg-zinc-100 dark:bg-zinc-800 rounded-3xl overflow-hidden cursor-pointer border border-zinc-300 dark:border-zinc-700">
+                    <div class="aspect-video relative bg-black">
+                        ${thumb}
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <div class="w-12 h-12 bg-ember rounded-full flex items-center justify-center text-white shadow-lg">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg mb-1">${esc(d[0])}</h3>
+                        <p class="text-sm text-zinc-600 dark:text-zinc-400 line-clamp-2">${esc(d[1])}</p>
+                    </div>
+                </div>`;
+            }).join("");
+            $("#work").classList.toggle("hidden",!has||!SITE.sections.work);
+            $$('a[href="#work"]').forEach(x=>x.classList.toggle("hidden",!has||!SITE.sections.work));
+            ["pricing","contact"].forEach(k=>{$("#"+k).classList.toggle("hidden",!SITE.sections[k]);$$(`a[href="#${k}"]`).forEach(x=>x.classList.toggle("hidden",!SITE.sections[k]))});
+            $("#chblock").classList.toggle("hidden",!YT);
+        }
+
+        function openModal(url){
+            $("#modal-box").innerHTML=isYT(url)
+                ?`<iframe class="w-full h-full rounded-2xl" src="https://www.youtube-nocookie.com/embed/${vidId(url)}?autoplay=1&rel=0" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`
+                :`<video class="w-full h-full rounded-2xl bg-black" src="${esc(url)}" controls autoplay playsinline></video>`;
+            $("#video-modal").classList.remove("hidden");
+            $("#video-modal").classList.add("flex");
+            document.body.style.overflow="hidden";
+        }
+
+        function closeModal(){
+            $("#modal-box").innerHTML="";
+            $("#video-modal").classList.add("hidden");
+            $("#video-modal").classList.remove("flex");
+            document.body.style.overflow="";
+        }
+
+        function render(){
+            const t=T[L];
+            document.documentElement.lang=L;document.documentElement.dir=L=="ar"?"rtl":"ltr";
+            document.title=SITE.seo["title_"+L];
+            document.querySelector('meta[name="description"]').content=SITE.seo.desc;
+            $$("[data-i]").forEach(e=>e.textContent=t[e.dataset.i]);
+            $("#lang").textContent=L=="ar"?"EN":"عربي";
+            $("#ytlink").href=YT;
+            renderTabs();
+            $("#rushL").innerHTML=`${t.rush}<small class="block opacity-60">${t.rushS}</small>`;
+            $("#cl").innerHTML=`<a href="https://wa.me/${WA}" target="_blank" class="flex justify-between p-4 rounded-2xl bg-zinc-100 dark:bg-zinc-800 hover:bg-ember hover:text-white transition-all font-bold"><span>${t.cl[0]}</span><span class="opacity-60 font-mono">${WA_SHOW}</span></a><a href="mailto:${EMAIL}" class="flex justify-between p-4 rounded-2xl bg-zinc-100 dark:bg-zinc-800 hover:bg-ember hover:text-white transition-all font-bold"><span>${t.cl[1]}</span><span class="opacity-60 font-mono">${EMAIL}</span></a>`;
+            $("#cl").innerHTML+=(C.socials||[]).filter(x=>x.url).map(x=>`<a href="${esc(x.url)}" target="_blank" rel="noopener" class="flex justify-between p-4 rounded-2xl bg-zinc-100 dark:bg-zinc-800 hover:bg-ember hover:text-white transition-all font-bold"><span>${esc(x.label)}</span></a>`).join("");
+            $("#n").placeholder=t.ph[0];$("#e").placeholder=t.ph[1];$("#m").placeholder=t.ph[2];$("#sb").textContent=t.sb;
+            panel();vids();calc()}
+
+        function renderTabs(){
+            $("#tabs").innerHTML=T[L].tabs.map((x,k)=>`<button role="tab" data-t="${TABS[k]}" aria-selected="${TABS[k]==tab}" class="px-4 py-2 rounded-full text-sm font-bold transition-all ${TABS[k]==tab?"bg-ember text-white":"bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400"}">${x}</button>`).join("");
+        }
+
+        function setTheme(dark){
+            document.documentElement.classList.toggle("dark",dark);
+            $("#theme").textContent=dark?"☀️":"🌙";
+            try{localStorage.setItem("theme",dark?"dark":"light")}catch(e){}
+        }
+
+        function initEventListeners(){
+            $("#calc").addEventListener("input",e=>{
+                const x=e.target,t=x.dataset.t;if(!t)return;
+                if(x.type=="range"){S[t][x.dataset.k]=+x.value;$(`#o-${t}-${x.dataset.k}`).textContent=x.value+" "+x.dataset.u}
+                else{
+                    if(x.type=="radio")S[t].s=+x.value;
+                    else if(x.type=="checkbox")S[t].a=$$(`[name=c-${t}]:checked`).map(c=>+c.value);
+                    const nm=x.name,val=x.value;panel();
+                    const f=document.querySelector(`[name="${nm}"][value="${val}"]`);if(f)f.focus();
+                }
+                calc();
+            });
+            $("#rush").addEventListener("change",calc);
+            $("#tabs").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;tab=b.dataset.t;renderTabs();panel();calc()});
+            $("#lang").addEventListener("click",()=>{L=L=="ar"?"en":"ar";try{localStorage.setItem("lang",L)}catch(e){}render()});
+            $("#theme").addEventListener("click",()=>setTheme(!document.documentElement.classList.contains("dark")));
+            $("#cf").addEventListener("submit",e=>{e.preventDefault();
+                const m=`${$("#m").value}\n\n${$("#n").value} — ${$("#e").value}`;
+                window.open(`https://wa.me/${WA}?text=${encodeURIComponent(m)}`,"_blank","noopener")});
+            const open=e=>{const c=e.target.closest("[data-k]");if(c){e.preventDefault();openModal(VIDEOS[+c.dataset.k].url)}};
+            $("#vids").addEventListener("click",open);
+            $("#vids").addEventListener("keydown",e=>{if(e.key=="Enter"||e.key==" ")open(e)});
+            $("#close-modal").onclick=closeModal;
+            $("#video-modal").addEventListener("click",e=>{if(e.target.id=="video-modal")closeModal()});
+            document.addEventListener("keydown",e=>{if(e.key=="Escape")closeModal()});
+            $("#yr").textContent=new Date().getFullYear();
+        }
+
+        render();
+        initEventListeners();
+        setTheme(document.documentElement.classList.contains("dark"));
+        } catch(error) {
+            const box=document.querySelector("#load-error");
+            box.textContent="تعذر تحميل بيانات الموقع. تأكد من رفع ملف site-data.json بجوار index.html ثم حدّث الصفحة.";
+            box.classList.remove("hidden");
+            console.error(error);
+        }
+    })();
+    </script>
+</body>
+</html>
