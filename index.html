@@ -89,6 +89,14 @@
                 </div>
             </div>
             <div class="bento-grid" id="vids"></div>
+            <div id="work-empty" class="hidden mt-8 glass rounded-3xl p-10 text-center">
+                <div class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-ember/10 text-ember" aria-hidden="true">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+                <h3 class="text-2xl font-extrabold mb-3" data-i="workEmptyTitle"></h3>
+                <p class="mx-auto max-w-xl text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6" data-i="workEmptyText"></p>
+                <a href="#contact" class="inline-flex px-6 py-3 bg-ember text-white font-bold rounded-xl hover:scale-105 transition-all" data-i="workEmptyCta"></a>
+            </div>
             <div id="chblock" class="mt-12 p-6 rounded-3xl glass flex flex-col md:flex-row items-center justify-between gap-6">
                 <div>
                     <h3 class="text-xl font-bold" data-i="chTitle"></h3>
@@ -194,8 +202,10 @@
                     </div>
                 </div>`;
             }).join("");
-            $("#work").classList.toggle("hidden",!has||!SITE.sections.work);
-            $$('a[href="#work"]').forEach(x=>x.classList.toggle("hidden",!has||!SITE.sections.work));
+            $("#work").classList.toggle("hidden",!SITE.sections.work);
+            $("#vids").classList.toggle("hidden",!has);
+            $("#work-empty").classList.toggle("hidden",has);
+            $$('a[href="#work"]').forEach(x=>x.classList.toggle("hidden",!SITE.sections.work));
             ["pricing","contact"].forEach(k=>{$("#"+k).classList.toggle("hidden",!SITE.sections[k]);$$(`a[href="#${k}"]`).forEach(x=>x.classList.toggle("hidden",!SITE.sections[k]))});
             $("#chblock").classList.toggle("hidden",!YT);
         }
