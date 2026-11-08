@@ -237,7 +237,7 @@
             $("#ytlink").href=YT;
             renderPricing();
             $("#cl").innerHTML=`<a href="https://wa.me/${WA}" target="_blank" class="flex justify-between p-4 rounded-2xl bg-zinc-100 dark:bg-zinc-800 hover:bg-ember hover:text-white transition-all font-bold"><span>${t.cl[0]}</span><span class="opacity-60 font-mono">${WA_SHOW}</span></a><a href="mailto:${EMAIL}" class="flex justify-between p-4 rounded-2xl bg-zinc-100 dark:bg-zinc-800 hover:bg-ember hover:text-white transition-all font-bold"><span>${t.cl[1]}</span><span class="opacity-60 font-mono">${EMAIL}</span></a>`;
-            $("#cl").innerHTML+=(C.socials||[]).filter(x=>x.url).map(x=>`<a href="${esc(x.url)}" target="_blank" rel="noopener" class="flex justify-between p-4 rounded-2xl bg-zinc-100 dark:bg-zinc-800 hover:bg-ember hover:text-white transition-all font-bold"><span>${esc(x.label)}</span></a>`).join("");
+            $("#cl").innerHTML+=(C.socials||[]).filter(x=>{try{return new URL(x.url).protocol==="https:"}catch{return false}}).map(x=>`<a href="${esc(x.url)}" target="_blank" rel="noopener noreferrer" class="flex justify-between p-4 rounded-2xl bg-zinc-100 dark:bg-zinc-800 hover:bg-ember hover:text-white transition-all font-bold"><span>${esc(x.label)}</span></a>`).join("");
             $("#n").placeholder=t.ph[0];$("#e").placeholder=t.ph[1];$("#m").placeholder=t.ph[2];$("#sb").textContent=t.sb;
             vids()}
 

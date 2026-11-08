@@ -37,10 +37,21 @@
     <section id="editor" class="hidden">
       <div class="card">
         <div class="row" style="border:0;padding-top:0"><h2>إعدادات الموقع</h2><button id="logout" class="secondary">قطع الاتصال</button></div>
-        <p class="hint">يمكنك تعديل النصوص والأسعار وروابط التواصل والألوان. اترك البيانات بصيغة JSON صحيحة.</p>
+        <p class="hint">يمكنك تعديل النصوص والألوان. اترك البيانات بصيغة JSON صحيحة.</p>
         <label for="settings">إعدادات الموقع</label>
         <textarea id="settings" spellcheck="false"></textarea>
         <button id="save-settings">حفظ الإعدادات</button>
+      </div>
+      <div class="card">
+        <h2>روابط التواصل</h2>
+        <form id="social-form">
+          <div class="grid">
+            <label>اسم المنصة<input id="social-label" required placeholder="Facebook"></label>
+            <label>رابط الصفحة<input id="social-url" type="url" required dir="ltr" placeholder="https://facebook.com/your-page"></label>
+          </div>
+          <button>إضافة رابط</button>
+        </form>
+        <div id="social-links"></div>
       </div>
       <div class="card">
         <h2>إضافة عمل</h2>
@@ -83,6 +94,10 @@
         <button class="secondary" data-action="down" data-index="${index}" ${index===siteData.videos.length-1?"disabled":""}>↓</button>
         <button class="secondary" data-action="edit" data-index="${index}">تعديل</button>
         <button class="danger" data-action="delete" data-index="${index}">حذف</button></div></div>`).join("")||"<p>لا توجد أعمال مضافة.</p>";
+      siteData.contact.socials=Array.isArray(siteData.contact.socials)?siteData.contact.socials:[];
+      $("#social-links").innerHTML=siteData.contact.socials.map((social,index)=>`<div class="row">
+        <div><strong>${escapeHtml(social.label)}</strong><small>${escapeHtml(social.url)}</small></div>
+        <div class="actions"><button class="danger" data-social-delete="${index}">حذف</button></div></div>`).join("")||"<p>لا توجد روابط إضافية.</p>";
     }
 
     function escapeHtml(value){
@@ -96,7 +111,7 @@
           message:commitMessage,content:btoa(String.fromCharCode(...new TextEncoder().encode(JSON.stringify(siteData,null,2)+"\n"))),sha,branch
         })});
         sha=result.content.sha;
-        status("تم الحفظ. سيُنشر التحديث على الموقع بعد اكتمال GitHub Pages.");
+          status("تم الحفظ في GitHub. سيظهر التغيير على الموقع بعد تفعيل GitHub Pages واكتمال النشر.");
         render();
         return true;
       }catch(error){
@@ -134,6 +149,27 @@
       }catch(error){status(`الإعدادات غير صالحة: ${error.message}`)}
     });
 
+    $("#social-form").addEventListener("submit",async event=>{
+      event.preventDefault();
+      const label=$("#social-label").value.trim(),url=$("#social-url").value.trim();
+      try{
+        const parsed=new URL(url);
+        if(parsed.protocol!=="https:")throw new Error("يجب أن يبدأ الرابط بـ https://");
+        if(!label)throw new Error("أدخل اسم المنصة.");
+        if(siteData.contact.socials.some(social=>social.url===url))throw new Error("هذا الرابط مضاف بالفعل.");
+        siteData.contact.socials.push({label,url});
+        if(await saveData("Add social link"))event.target.reset();
+        else{siteData.contact.socials.pop();render()}
+      }catch(error){status(error.message)}
+    });
+
+    $("#social-links").addEventListener("click",async event=>{
+      const button=event.target.closest("[data-social-delete]");
+      if(!button)return;
+      const index=Number(button.dataset.socialDelete),previous=siteData.contact.socials.splice(index,1)[0];
+      if(!await saveData("Remove social link")){siteData.contact.socials.splice(index,0,previous);render()}
+    });
+
     $("#video-form").addEventListener("submit",async event=>{
       event.preventDefault();
       const url=$("#video-url").value.trim();
@@ -141,7 +177,7 @@
       const video={url,ar:[$("#title-ar").value.trim(),$("#desc-ar").value.trim()],en:[$("#title-en").value.trim(),$("#desc-en").value.trim()]};
       siteData.videos.push(video);
       if(await saveData("Add portfolio video"))event.target.reset();
-      else siteData.videos.pop();
+      else{siteData.videos.pop();render()}
     });
 
     $("#videos").addEventListener("click",async event=>{
